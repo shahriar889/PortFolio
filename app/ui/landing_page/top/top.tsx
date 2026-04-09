@@ -9,8 +9,12 @@ const Top = () => {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = async () => {
-    await navigator.clipboard.writeText("shahriarrahman889@gmail.com")
-    setCopied(true);
+    try {
+      await navigator.clipboard.writeText("shahriarrahman889@gmail.com");
+      alert("Email copied!");
+    } catch {
+      alert("Copy failed. Email: shahriarrahman889@gmail.com");
+    }
 
     setTimeout(() => {
       setCopied(false);
